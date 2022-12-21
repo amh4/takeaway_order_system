@@ -10,8 +10,6 @@ class Order
   end
 
   def read_back
-    @order
+    @order.empty? ? "Your order is empty" : @order
   end
-
-
 end
