@@ -10,4 +10,9 @@ RSpec.describe Menu do
     my_choice = Menu.new("Egg Fried Rice")
     expect(my_choice.list_choice).to eq ({"Egg Fried Rice" => 4.00})
   end
+
+  it "takes the user choice and lets the user know if it is not on the menu" do
+    my_choice = Menu.new("Chicken Nuggets")
+    expect(my_choice.list_choice).to eq "That is not on the menu"
+  end
 end

@@ -97,6 +97,13 @@ my_order.read_back # => "Your order is empty"
 choice_1 = Menu.new("Egg Fried Rice")
 choice_2 = Menu.new("Prawn Crackers")
 my_order = Order.new("Adam", "07584573145")
+
+
+
+order_message = Text.new(my_order)
+
+
+
 my_order.add(choice_1)
 my_order.add(choice_2)
 my_order.place_order # => order_placed = true & send_text "Thanks Adam, your order will arrive at 19:30"
@@ -134,6 +141,8 @@ my_menu.list_menu # => {"Egg fried rice" => £5, "chow mein" => "£6, "prawn cra
 choice_1 = Menu.new("Egg Fried Rice")
 choice_1.list_choice # => "Egg Fried Rice" => £5
 
+choice_1 = Menu.new("Chicken Nuggets")
+choice_1.list_choice # => "That is not on the menu"
 # Order Tests - Mock Tests
 
 my_order = Order.new("Adam", "07584573145")

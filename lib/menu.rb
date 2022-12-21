@@ -10,6 +10,10 @@ class Menu
   end
 
   def list_choice
-    {@choice => @@menu.fetch(@choice)}
+    if @@menu.include?(@choice) == false
+      "That is not on the menu"
+    else
+      {@choice => @@menu.fetch(@choice)}
+    end
   end
 end

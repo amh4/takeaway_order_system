@@ -15,7 +15,15 @@ class Order
   end
 
   def place_order
-    @order_placed = true
+    if @order.empty?
+      "You have not added any items to your order"
+    elsif @order.length < 6 
+      @order_placed = true
+      Text.send_text_30_min_wait(@name, @phone_number)
+    else
+      @order_placed = true
+      Text.send_text_45_min_wait(@name, @phone_number)
+    end
   end
 
   def print_receipt
