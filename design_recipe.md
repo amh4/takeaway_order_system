@@ -88,7 +88,7 @@ _Make a list of examples of how the class will behave in different situations._
 choice_1 = Menu.new("Egg Fried Rice")
 my_order = Order.new("Adam", "07584573145")
 my_order.add(choice_1)
-my_order.read_back # => "egg fried rice"
+my_order.read_back # => "Egg Fried Rice"=>4.0
 
 choice_1 = Menu.new("Egg Fried Rice")
 my_order = Order.new("Adam", "07584573145")
@@ -99,7 +99,7 @@ choice_2 = Menu.new("Prawn Crackers")
 my_order = Order.new("Adam", "07584573145")
 my_order.add(choice_1)
 my_order.add(choice_2)
-my_order.place # => order_placed = true & send_text "Thanks Adam, your order will arrive at 19:30"
+my_order.place_order # => order_placed = true & send_text "Thanks Adam, your order will arrive at 19:30"
 my_order.print_receipt # => "egg fried rice" => £5, "prawn crackers" => £2 place has to be == true to be able to print receipt 
 
 choice_1 = Menu.new("Egg Fried Rice")
@@ -115,11 +115,12 @@ my_order.add(choice_3)
 my_order.add(choice_4)
 my_order.add(choice_5)
 my_order.add(choice_6)
-my_order.place # =>  => order_placed = true & send_text "Thanks Adam, your order will arrive at 19:45"
+my_order.place_order # =>  => order_placed = true & send_text "Thanks Adam, your order will arrive at 19:45"
+my_order.print_receipt # => "egg fried rice" => £5, "prawn crackers" => £2 place has to be == true to be able to print receipt 
 
 choice_1 = Menu.new("Egg Fried Rice")
 my_order = Order.new("Adam", "07584573145")
-my_order.place # => "You have not added any items to your order"
+my_order.place_order # => "You have not added any items to your order"
 
 choice_1 = Menu.new("Egg Fried Rice")
 my_order = Order.new("Adam", "07584573145")
@@ -147,7 +148,7 @@ text = double
 my_order = Order.new("Adam", "07584573145")
 my_order.add(double(:fake_menu_choice, list_choice: "Egg Fried Rice": 5.00))
 my_order.add(double(:fake_menu_choice, list_choice: "Chow Mein": 6.00))
-my_order.place # => order_placed = true & send_text "Thanks Adam, your order will arrive at 19:30"
+my_order.place_order # => order_placed = true & send_text "Thanks Adam, your order will arrive at 19:30"
 my_order.print_receipt # => "egg fried rice" => £5, "chow mein" => £6
 
 my_order = Order.new("Adam", "07584573145")
