@@ -52,10 +52,11 @@ class Order
     # takes a string
     # calls list_choice on instance to get K V pair
     # Adds it to order list 
+    # no output
   end
 
   def read_back
-    # returns the keys of all items on order
+    # returns the items without price
   end
 
   def print_receipt
@@ -72,7 +73,8 @@ end
 class Text()
   def send_text
     # this is called when the order is placed
-    # sends @name + Time.now() + 30 mins to recipient
+    # sends @name + Time.now() + 30 mins to recipient < 6 items
+    # sends @name + Time.now() + 45 mins to recipient >= 6 items
   end
 end
 ```
