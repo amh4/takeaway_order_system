@@ -74,4 +74,15 @@ RSpec.describe Order do
     my_order.add(choice_6)
     expect(my_order.place_order).to eq "Message sent => Thank you. Your order has been placed and will be ready in 45 mins"
   end
+
+  xit "returns an itemised receipt with grand total" do
+    choice_1 = Menu.new("Egg Fried Rice")
+    choice_2 = Menu.new("Prawn Crackers")
+    my_order = Order.new("Adam", "07584573146")
+    order_message = Text.new(my_order)
+    my_order.add(choice_1)
+    my_order.add(choice_2)
+    my_order.place_order
+    expect(my_order.print_receipt).to eq "Your grand total is £6"
+  end
 end

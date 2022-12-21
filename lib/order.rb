@@ -26,7 +26,17 @@ class Order
     end
   end
 
+
+  #  NEED TO ADD GRAND TOTAL FUNCTIONALITY
   def print_receipt
-    @order_placed ? @order : "Your order has not been placed yet"
+    grand_total = 0
+    if @order_placed = true
+      @order.each do |item|
+      return grand_total += item.default
+      end
+    else
+      "Your order has not been placed yet"
+    end
+    return grand_total
   end
 end
