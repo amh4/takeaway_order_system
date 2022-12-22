@@ -9,7 +9,7 @@ class Text
 
   def self.send_text_30_min_wait(name, phone_number)
     # account_sid = ENV["ssid"]
-    # auth_token = ENV['auth_token']
+    # auth_token = ENV["auth_token"]
     # client = Twilio::REST::Client.new(account_sid, auth_token)
 
     # cleaned_number = phone_number.split("").drop(1).unshift("+44").join("")
@@ -20,7 +20,7 @@ class Text
     # client.messages.create(
     #   from: from,
     #   to: to,
-    #   body: 'Thank you. Your order has been placed and will be ready in 30 mins'
+    #   body: "Thank you #{name}. Your order has been placed and will be ready in 30 mins"
     # )
 
     return "Message sent => Thank you. Your order has been placed and will be ready in 30 mins"
@@ -39,7 +39,7 @@ class Text
     # client.messages.create(
     #   from: from,
     #   to: to,
-    #   body: 'Thank you. Your order has been placed and will be ready in 45 mins'
+    #   body: "Thank you. Your order has been placed and will be ready in 45 mins"
     # )
     return "Message sent => Thank you. Your order has been placed and will be ready in 45 mins"
   end

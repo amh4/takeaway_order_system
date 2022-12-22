@@ -26,7 +26,6 @@ class Order
     end
   end
 
-
   # Potentially need to tidy up receipt printing
   def print_receipt
     grand_total = 0
