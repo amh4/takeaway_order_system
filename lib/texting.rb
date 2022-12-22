@@ -21,13 +21,13 @@ class Text
       client.messages.create(
         from: from,
         to: to,
-        body: "Thank you #{name}. Your order has been placed and will be ready at #{Time.now + 30*60*0}"
+        body: "Thank you #{name}. Your order has been placed and will be ready at #{Time.now + (1*30*60)}"
       )
     else
       client.messages.create(
         from: from,
         to: to,
-        body: "Thank you #{name}. Your order has been placed and will be ready at #{Time.now + 1*60*0}"
+        body: "Thank you #{name}. Your order has been placed and will be ready at #{Time.now + (1*45*60)}"
       )
     end
     return "Message sent successfully"
