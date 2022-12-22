@@ -18,33 +18,12 @@ RSpec.describe Order do
     expect(my_order.read_back).to eq "Your order is empty"
   end
 
-  it "if @order_placed is true then receipt can be printed" do
-    choice_1 = Menu.new("Egg Fried Rice")
-    choice_2 = Menu.new("Prawn Crackers")
-    my_order = Order.new("Adam", "07584573146")
-    order_message = Text.new(my_order)
-    my_order.add(choice_1)
-    my_order.add(choice_2)
-    my_order.place_order
-    expect(my_order.print_receipt).to eq [{"Egg Fried Rice"=>4.0}, {"Prawn Crackers"=>2.0}]
-  end
-
   it "if order is empty and they ask to place returns message to inform user" do
     choice_1 = Menu.new("Egg Fried Rice")
     choice_2 = Menu.new("Prawn Crackers")
     my_order = Order.new("Adam", "07584573146")
     order_message = Text.new(my_order)
     expect(my_order.place_order).to eq "You have not added any items to your order"
-  end
-
-  it "if @order_placed is false then receipt can't be printed" do
-    choice_1 = Menu.new("Egg Fried Rice")
-    choice_2 = Menu.new("Prawn Crackers")
-    my_order = Order.new("Adam", "07584573146")
-    order_message = Text.new(my_order)
-    my_order.add(choice_1)
-    my_order.add(choice_2)
-    expect(my_order.print_receipt).to eq "Your order has not been placed yet"
   end
 
   it "if order is less than 6 items text says 30 mins" do
@@ -75,7 +54,7 @@ RSpec.describe Order do
     expect(my_order.place_order).to eq "Message sent => Thank you. Your order has been placed and will be ready in 45 mins"
   end
 
-  xit "returns an itemised receipt with grand total" do
+  it "returns an itemised receipt with grand total" do
     choice_1 = Menu.new("Egg Fried Rice")
     choice_2 = Menu.new("Prawn Crackers")
     my_order = Order.new("Adam", "07584573146")
@@ -83,6 +62,16 @@ RSpec.describe Order do
     my_order.add(choice_1)
     my_order.add(choice_2)
     my_order.place_order
-    expect(my_order.print_receipt).to eq "Your grand total is £6"
+    expect(my_order.print_receipt).to eq "[{\"Egg Fried Rice\"=>4.0}, {\"Prawn Crackers\"=>2.0}] Your grand total is £6.0"
+  end  
+  
+  it "if @order_placed is false then receipt can't be printed" do
+    choice_1 = Menu.new("Egg Fried Rice")
+    choice_2 = Menu.new("Prawn Crackers")
+    my_order = Order.new("Adam", "07584573146")
+    order_message = Text.new(my_order)
+    my_order.add(choice_1)
+    my_order.add(choice_2)
+    expect(my_order.print_receipt).to eq "Your order has not been placed yet"
   end
 end

@@ -27,16 +27,16 @@ class Order
   end
 
 
-  #  NEED TO ADD GRAND TOTAL FUNCTIONALITY
+  # Potentially need to tidy up receipt printing
   def print_receipt
     grand_total = 0
-    if @order_placed = true
-      @order.each do |item|
-      return grand_total += item.default
-      end
+    if @order_placed
+      @order.each{|item|
+        item.map{|k,v| grand_total += v}
+      }
+      return "#{@order} Your grand total is £#{grand_total}"
     else
       "Your order has not been placed yet"
     end
-    return grand_total
   end
 end
