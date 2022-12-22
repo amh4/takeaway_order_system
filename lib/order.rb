@@ -7,7 +7,7 @@ class Order
   end
 
   def add(item)
-    @order << item.list_choice
+    item.list_choice == "That is not on the menu" ? "That is not on the menu" : @order << item.list_choice
   end
 
   def read_back

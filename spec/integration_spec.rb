@@ -16,8 +16,15 @@ RSpec.describe Order do
     choice_1 = Menu.new("Egg Fried Rice")
     my_order = Order.new("Adam", "07584573146")
     expect(my_order.read_back).to eq "Your order is empty"
+    
   end
-
+  ######
+  it "returns an message stating the item is not on the menu" do
+    choice_1 = Menu.new("Chicken Nuggets")
+    my_order = Order.new("Adam", "07584573146")
+    expect(my_order.add(choice_1)).to eq "That is not on the menu"
+  end 
+  ######
   it "if order is empty and they ask to place returns message to inform user" do
     choice_1 = Menu.new("Egg Fried Rice")
     choice_2 = Menu.new("Prawn Crackers")
