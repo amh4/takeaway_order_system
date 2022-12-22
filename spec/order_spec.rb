@@ -35,6 +35,24 @@ RSpec.describe Order do
     expect(my_order.place_order).to eq "You have not added any items to your order"
   end
   
-    
+  it "Prints receipt with items and total" do
+    my_order = Order.new("Adam", "07584573146")
+    fake_choice = double :fake_choice
+    allow(fake_choice).to receive(:list_choice).and_return({"Egg Fried Rice" => 4.00})
+    my_order.add(fake_choice)
+    my_order.place_order
+    expect(my_order.print_receipt).to eq "[{\"Egg Fried Rice\"=>4.0}] Your grand total is £4.0"
+  end
   
+  it "Takes an instance of menu (item), adds it to order, reads it back" do
+    my_order = Order.new("Adam", "07584573146")
+    fake_choice = double :fake_choice
+    allow(fake_choice).to receive(:list_choice).and_return({"Egg Fried Rice" => 4.00})
+    my_order.add(fake_choice)
+    expect(my_order.print_receipt).to eq "Your order has not been placed yet"
+  end
 end
+
+
+
+# NEED TO MOCK TEST TEXT MESSAGES

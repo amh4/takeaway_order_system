@@ -18,13 +18,13 @@ RSpec.describe Order do
     expect(my_order.read_back).to eq "Your order is empty"
     
   end
-  ######
+  
   it "returns an message stating the item is not on the menu" do
     choice_1 = Menu.new("Chicken Nuggets")
     my_order = Order.new("Adam", "07584573146")
     expect(my_order.add(choice_1)).to eq "That is not on the menu"
   end 
-  ######
+  
   it "if order is empty and they ask to place returns message to inform user" do
     choice_1 = Menu.new("Egg Fried Rice")
     choice_2 = Menu.new("Prawn Crackers")
@@ -40,7 +40,7 @@ RSpec.describe Order do
     order_message = Text.new(my_order)
     my_order.add(choice_1)
     my_order.add(choice_2)
-    expect(my_order.place_order).to eq "Message sent => Thank you. Your order has been placed and will be ready in 30 mins"
+    expect(my_order.place_order).to eq "Message sent successfully"
   end
 
   it "if order is >= 6 items text says 45 mins" do
@@ -58,7 +58,7 @@ RSpec.describe Order do
     my_order.add(choice_4)
     my_order.add(choice_5)
     my_order.add(choice_6)
-    expect(my_order.place_order).to eq "Message sent => Thank you. Your order has been placed and will be ready in 45 mins"
+    expect(my_order.place_order).to eq "Message sent successfully"
   end
 
   it "returns an itemised receipt with grand total" do
